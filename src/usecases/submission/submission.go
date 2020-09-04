@@ -1,0 +1,5 @@
+package submission
+
+func SaveSubmissionResult() {
+
+}
