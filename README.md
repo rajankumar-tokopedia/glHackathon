@@ -16,6 +16,20 @@ At the end of the hackathon top N groups will receive awards which they can clai
 ###Requirment Docs
 https://docs.google.com/document/d/1cE4F2ixCKZAYTEDF2T-gm2ZnMccFJEyd-bUAT3iJ1BM/edit#
 
+#### How to Run 
+1. Git Clone
+2. cd << whereever you clone the code >>
+3. (a) if you have go avaliable in your system
+  ```shell script
+go run server.go
+```
+3. (b) No, use direct binnary
+```shell script
+./server
+```
+FYI How to Instal GOLang 
+https://golang.org/doc/install
+    
 
 ###API Enpoints 
  ##### 1. Submit Hackathon Problem Solution 
@@ -251,25 +265,38 @@ Response
 
 ##Repo directory structure
 ```
-- db (this folder contains sql db filtes)
-- src
-    - apperror (http error handller code0
-    - coderunner (This package Contains code which help to exec code)
-        - go (go executor implementation)
-        - js (js executor implementation)
-        - js (c executor implementation)
-    - constants ( its contains contants used by applicatio)
-    - handller ( http handller are implemanted here) 
-    - helper ( application helpers) 
-    - interface ( application component entity defins here) 
-    - middleware ( http middleware define here like. Auth)
-    - mocks (mock of application component entity which used in testing)
-    - model (All db recated)
-    - server (custom http server implemanted here which used by this application)
-    - usecase (Independent code which used by handllers)
-- vendor (third party lib )
-server.go (main Entry Point Of Application)
-server (executable stable binary of file)
+-| db (this folder contains sql db filtes)
+-| src
+    -| apperror (http error handller code0
+    -| coderunner (This package Contains code which help to exec code)
+        -| go (go executor implementation)
+            -|
+        -| js (js executor implementation)
+            -|
+        -| js (c executor implementation)
+            -|
+    -| constants ( its contains contants used by applicatio)
+        -|
+    -| handller ( http handller are implemanted here) 
+        -|
+    -| helper ( application helpers) 
+        -|
+    -| interface ( application component entity defins here) 
+        -|
+    -| middleware ( http middleware define here like. Auth)
+        -|
+    -| mocks (mock of application component entity which used in testing)
+        -|
+    -| model (All db recated)
+        -|
+    -| server (custom http server implemanted here which used by this application)
+        -|
+    -| usecase (Independent code which used by handllers)
+        -|
+-| vendor (third party lib )
+    -|
+-| server.go (main Entry Point Of Application)
+-| server (executable stable binary of file)
 
 
 ```
