@@ -30,9 +30,9 @@ func (r *repo) GetIDE(ctx context.Context, lan string) (coderunner.IDE, error) {
 	switch strings.ToLower(lan) {
 	case "c":
 		return r.C, nil
-	case "go":
+	case "go", "golang":
 		return r.GO, nil
-	case "js":
+	case "js", "javascript":
 		return r.JS, nil
 	default:
 		return nil, errors.New("invalid language selected")
