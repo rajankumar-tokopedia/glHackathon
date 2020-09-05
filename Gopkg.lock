@@ -2,12 +2,36 @@
 
 
 [[projects]]
+  digest = "1:bb79929dc3be4d56bc0f343c27fb81b29bbcc2cb1c00d68a82a2472f1072e4c0"
+  name = "github.com/DATA-DOG/go-sqlmock"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "b8a63d3edfc5e2ab744c0e9b61342d542e9d7ad2"
+  version = "v1.5.0"
+
+[[projects]]
+  digest = "1:7ae311278f7ccaa724de8f2cdec0a507ba3ee6dea8c77237e8157bcf64b0f28b"
+  name = "github.com/golang/mock"
+  packages = ["gomock"]
+  pruneopts = "UT"
+  revision = "f7b1909c82a8958747e5c87c6a5c3b2eaed8a33d"
+  version = "v1.4.4"
+
+[[projects]]
   digest = "1:84a35669b4b31cc20ffc89c3b2ab32f2189fb2366a973efa1c25e009ef6ae1c6"
   name = "github.com/julienschmidt/httprouter"
   packages = ["."]
   pruneopts = "UT"
   revision = "4eec211fa4e8df74ed978dc5681612131854144f"
   version = "v1.3.0"
+
+[[projects]]
+  digest = "1:047349f9fa59b1c603d6a73f6bf9b03c9e2ac718f64a6ed04959ddc274903efc"
+  name = "github.com/mattn/go-sqlite3"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "baaf8a978416040e7f2d00ac36e345098d0588d8"
+  version = "v2.0.6"
 
 [[projects]]
   branch = "v1.0"
@@ -29,7 +53,10 @@
   analyzer-name = "dep"
   analyzer-version = 1
   input-imports = [
+    "github.com/DATA-DOG/go-sqlmock",
+    "github.com/golang/mock/gomock",
     "github.com/julienschmidt/httprouter",
+    "github.com/mattn/go-sqlite3",
     "gopkg.in/paytm/grace.v1",
   ]
   solver-name = "gps-cdcl"

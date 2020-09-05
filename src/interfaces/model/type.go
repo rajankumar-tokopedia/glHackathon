@@ -10,7 +10,7 @@ type Model interface {
 	UpdateSubmission(context.Context, int64, float32, int64) error
 	GetLeaders(ctx context.Context, eventId int64, howMany int64) ([]Leader, error)
 	GetSubmission(ctx context.Context, eventId int64, groupId int64) ([]Submission, error)
-	GetEventProblemsByGroupId(ctx context.Context, eventId int64, groupId int64, limit int64) ([]Submission, error)
+	GetEventSubmissionsByGroupId(ctx context.Context, eventId int64, groupId int64, limit int64) ([]Submission, error)
 }
 
 type Submission struct {
@@ -38,11 +38,11 @@ type User struct {
 }
 
 type Leader struct {
-	EventId  int64        `json:"event_id" db:"event_id"`
-	GroupId  int64        `json:"group_id" db:"group_id"`
-	Score    float32      `json:"score"`
-	Rank     int64        `json:"rank"`
-	Problems []Submission `json:"top_submissions"`
+	EventId     int64        `json:"event_id" db:"event_id"`
+	GroupId     int64        `json:"group_id" db:"group_id"`
+	Score       float32      `json:"score"`
+	Rank        int64        `json:"rank"`
+	Submissions []Submission `json:"top_submissions"`
 }
 
 var SubmissionStatus = struct {

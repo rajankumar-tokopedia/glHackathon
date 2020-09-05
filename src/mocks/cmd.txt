@@ -1,9 +1,11 @@
 mockgen -destination=./src/mocks/apperror/mock.go -package=mock github.com/rajankumar549/glHackathon/src/interfaces/apperror AppError
 
-mockgen -destination=./src/mocks/coderunner/mock.go -package=mock github.com/rajankumar549/glHackathon/src/interfaces/coderunner CodeRunner
+mockgen -destination=./src/mocks/coderunner/coderunner.go -package=mock github.com/rajankumar549/glHackathon/src/interfaces/coderunner CodeRunner
 
-mockgen -destination=./src/mocks/coderunner/mock.go -package=mock github.com/rajankumar549/glHackathon/src/interfaces/coderunner IDE
+mockgen -destination=./src/mocks/coderunner/ide.go -package=mock github.com/rajankumar549/glHackathon/src/interfaces/coderunner IDE
 
 mockgen -destination=./src/mocks/model/mock.go -package=mock github.com/rajankumar549/glHackathon/src/interfaces/model Model
 
 mockgen -destination=./src/mocks/server/mock.go -package=mock github.com/rajankumar549/glHackathon/src/interfaces/server HttpServer
+
+mockgen -destination=./src/mocks/httpparams/mock.go -package=mock github.com/rajankumar549/glHackathon/src/interfaces/server HttpParams

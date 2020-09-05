@@ -3,6 +3,7 @@ package code
 import (
 	"context"
 	"errors"
+	"fmt"
 	"time"
 
 	"github.com/rajankumar549/glHackathon/src/interfaces/coderunner"
@@ -31,21 +32,30 @@ func getTestCasesForProblem(ctx context.Context, problemId int64) []model.TestCa
 func run(ctx context.Context, runner coderunner.CodeRunner, lang, sourceCode string, cases []model.TestCase) (accuracy float32, status int64, err error) {
 	ide, err := runner.GetIDE(ctx, lang)
 	if err != nil || ide == nil {
-		return
+		return 0, model.SubmissionStatus.Proscessing, fmt.Errorf("unable to find ide for lang %+v", lang)
 	}
 	totalNoCases := len(cases)
 	var acc float32 = 0
-
+	var faildAnyTest bool = false
 	for _, tcase := range cases {
 		thisTestAccuracy, status, err := ide.Run(ctx, sourceCode, tcase)
-		if err != nil || status == model.SubmissionStatus.Rejected {
+		if err != nil {
 			return 0, status, errors.New("TesCase Failed")
 		}
-		acc += thisTestAccuracy
+
+		if status == model.SubmissionStatus.Accepted {
+			acc += thisTestAccuracy
+		} else if status == model.SubmissionStatus.Rejected {
+			faildAnyTest = true
+		}
 	}
 
 	if totalNoCases > 0 {
 		acc = (acc / float32(totalNoCases))
+	}
+
+	if faildAnyTest {
+		return acc, model.SubmissionStatus.Rejected, nil
 	}
 
 	return acc, model.SubmissionStatus.Accepted, nil

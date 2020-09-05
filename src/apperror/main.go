@@ -1,8 +1,6 @@
 package apperror
 
 import (
-	"fmt"
-
 	"github.com/rajankumar549/glHackathon/src/interfaces/apperror"
 )
 
@@ -58,11 +56,6 @@ func BadGatewayError(code, message string) *Error {
 		message:  message,
 		httpCode: 502,
 	}
-}
-
-func HttpErrorf(format string, a ...interface{}) string {
-	errmsg := fmt.Sprintf(format, a...)
-	return fmt.Sprintf(`{"success": false,"message_error": "%s"}`, errmsg)
 }
 
 func (err *Error) Error() string {

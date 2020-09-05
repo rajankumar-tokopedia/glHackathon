@@ -34,19 +34,19 @@ func (m *MockModel) EXPECT() *MockModelMockRecorder {
 	return m.recorder
 }
 
-// GetEventProblemsByGroupId mocks base method
-func (m *MockModel) GetEventProblemsByGroupId(arg0 context.Context, arg1, arg2, arg3 int64) ([]model.Submission, error) {
+// GetEventSubmissionsByGroupId mocks base method
+func (m *MockModel) GetEventSubmissionsByGroupId(arg0 context.Context, arg1, arg2, arg3 int64) ([]model.Submission, error) {
 	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "GetEventProblemsByGroupId", arg0, arg1, arg2, arg3)
+	ret := m.ctrl.Call(m, "GetEventSubmissionsByGroupId", arg0, arg1, arg2, arg3)
 	ret0, _ := ret[0].([]model.Submission)
 	ret1, _ := ret[1].(error)
 	return ret0, ret1
 }
 
-// GetEventProblemsByGroupId indicates an expected call of GetEventProblemsByGroupId
-func (mr *MockModelMockRecorder) GetEventProblemsByGroupId(arg0, arg1, arg2, arg3 interface{}) *gomock.Call {
+// GetEventSubmissionsByGroupId indicates an expected call of GetEventSubmissionsByGroupId
+func (mr *MockModelMockRecorder) GetEventSubmissionsByGroupId(arg0, arg1, arg2, arg3 interface{}) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetEventProblemsByGroupId", reflect.TypeOf((*MockModel)(nil).GetEventProblemsByGroupId), arg0, arg1, arg2, arg3)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetEventSubmissionsByGroupId", reflect.TypeOf((*MockModel)(nil).GetEventSubmissionsByGroupId), arg0, arg1, arg2, arg3)
 }
 
 // GetLeaders mocks base method

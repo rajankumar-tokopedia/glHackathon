@@ -31,6 +31,7 @@ func UpdateSubmissionResult(ctx context.Context, modelRepo model.Model, submissi
 
 func GetSubmissionInfo(ctx context.Context, modelRepo model.Model, eventId int64) ([]model.Submission, error) {
 	groupID, _ := ctx.Value(constants.CTX_GROUP_ID).(int64)
+	fmt.Println(eventId, groupID)
 	return modelRepo.GetSubmission(ctx, eventId, groupID)
 }
 
@@ -42,14 +43,13 @@ func GetLeaderBoardInfo(ctx context.Context, modelRepo model.Model, eventId int6
 	}
 
 	for idx, l := range leaders {
-		problems, err := modelRepo.GetEventProblemsByGroupId(ctx, eventId, l.GroupId, 10)
-		fmt.Println(problems, err)
+		subs, err := modelRepo.GetEventSubmissionsByGroupId(ctx, eventId, l.GroupId, 10)
 		if err != nil {
 			log.Printf("Usecase.GetEventProblemsByGroupId Unable to get problems for %+v.%+v :: %+v", eventId, l.GroupId, err)
 			continue
 		}
 
-		leaders[idx].Problems = problems
+		leaders[idx].Submissions = subs
 	}
 	return leaders, nil
 }
