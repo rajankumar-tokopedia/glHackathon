@@ -263,7 +263,7 @@ Response
 }
 ```
 
-##Repo directory structure
+### Repo directory structure
 ```
 -| db (this folder contains sql db filtes)
 -| src
