@@ -3,9 +3,9 @@ package server
 import (
 	"context"
 	"encoding/json"
+	"fmt"
 	"log"
 	"net/http"
-	"strconv"
 	"time"
 
 	"github.com/julienschmidt/httprouter"
@@ -122,8 +122,8 @@ func (resp *Response) StartProcessing() {
 }
 
 func (resp *Response) EndProcessing() {
-	processTime := time.Since(resp.startTime).Seconds() * 1000
-	resp.Header.SPT = strconv.FormatFloat(processTime, 'f', -1, 64)
-	resp.Header.ST = strconv.FormatInt(resp.startTime.Unix(), 10)
+	processTime := time.Since(resp.startTime).Seconds()
+	resp.Header.SPT = fmt.Sprintf("%+vms", processTime*1000)
+	resp.Header.ST = resp.startTime.Format(time.RFC1123)
 	return
 }

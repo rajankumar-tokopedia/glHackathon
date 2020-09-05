@@ -5,4 +5,5 @@ type PostSubmissionPayload struct {
 	SourceCode string `json:"source_code"`
 	Lang       string `json:"lang"`
 	ProblemId  int64  `json:"problem_id"`
+	subId      int64  `json:"sub_id"`
 }
